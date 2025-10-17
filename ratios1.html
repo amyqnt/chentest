@@ -111,7 +111,7 @@ function newQuestion() {
     document.getElementById('end-screen').style.display = 'flex';
     return;
   }
-
+  
   quizLocked = false;
   document.getElementById('feedback').textContent = '';
   const q = questions[currentIndex++];
@@ -127,23 +127,6 @@ function newQuestion() {
     container.appendChild(btn);
   });
 }
-
-
-        quizLocked = false;
-        document.getElementById('feedback').textContent = '';
-        const q = questions[currentIndex++];
-        document.getElementById('emoji-scene').textContent = q.scene;
-        document.getElementById('question').textContent = q.question;
-        const container = document.getElementById('choices-container');
-        container.innerHTML = '';
-        q.options.forEach(opt => {
-          const btn = document.createElement('button');
-          btn.className = 'p-3 bg-pink-500 text-white font-bold rounded-lg shadow-md hover:bg-pink-600 transition-colors';
-          btn.textContent = opt;
-          btn.onclick = () => checkAnswer(opt, q.correct, btn);
-          container.appendChild(btn);
-        });
-      }
 
       function checkAnswer(selected, correct, btn){
         if (quizLocked) return;
